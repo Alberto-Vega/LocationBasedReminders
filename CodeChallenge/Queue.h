@@ -1,17 +1,16 @@
 //
-//  ViewController.h
+//  Queue.h
 //  LocationBasedReminders
 //
 //  Created by Alberto Vega Gonzalez on 11/23/15.
 //  Copyright © 2015 Alberto Vega Gonzalez. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <MapKit/MapKit.h>
-#import <CoreLocation/CoreLocation.h>
+#import <Foundation/Foundation.h>
 
-@interface ViewController : UIViewController
+@interface Queue : NSObject
 
+- (void)enqueue:(id)anObject;
+- (id)dequeue;
 
 @end
-

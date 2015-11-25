@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF1050B21C05125E00133608 /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1050B11C05125E00133608 /* LocationController.m */; settings = {ASSET_TAGS = (); }; };
+		BF1050B51C051FB100133608 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1050B41C051FB100133608 /* DetailViewController.m */; settings = {ASSET_TAGS = (); }; };
+		BF1050B81C05378900133608 /* Anagram.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1050B71C05378900133608 /* Anagram.m */; settings = {ASSET_TAGS = (); }; };
 		BF4443DA1C03B53800D7D009 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4443D91C03B53800D7D009 /* main.m */; };
 		BF4443DD1C03B53800D7D009 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4443DC1C03B53800D7D009 /* AppDelegate.m */; };
 		BF4443E01C03B53800D7D009 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4443DF1C03B53800D7D009 /* ViewController.m */; };
@@ -15,6 +18,9 @@
 		BF4443E81C03B53800D7D009 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF4443E61C03B53800D7D009 /* LaunchScreen.storyboard */; };
 		BF4443F31C03B53800D7D009 /* LocationBasedRemindersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4443F21C03B53800D7D009 /* LocationBasedRemindersTests.m */; };
 		BF4443FE1C03B53800D7D009 /* LocationBasedRemindersUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4443FD1C03B53800D7D009 /* LocationBasedRemindersUITests.m */; };
+		BF44440C1C03B54A00D7D009 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF44440B1C03B54A00D7D009 /* MapKit.framework */; };
+		BF4444161C03DFEE00D7D009 /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4444151C03DFEE00D7D009 /* Stack.m */; settings = {ASSET_TAGS = (); }; };
+		BF4444191C03EBFF00D7D009 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4444181C03EBFF00D7D009 /* Queue.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF1050B01C05125E00133608 /* LocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationController.h; sourceTree = "<group>"; };
+		BF1050B11C05125E00133608 /* LocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationController.m; sourceTree = "<group>"; };
+		BF1050B31C051FB100133608 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		BF1050B41C051FB100133608 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		BF1050B61C05378900133608 /* Anagram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Anagram.h; path = CodeChallenge/Anagram.h; sourceTree = "<group>"; };
+		BF1050B71C05378900133608 /* Anagram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Anagram.m; path = CodeChallenge/Anagram.m; sourceTree = "<group>"; };
 		BF4443D51C03B53800D7D009 /* LocationBasedReminders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationBasedReminders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4443D91C03B53800D7D009 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BF4443DB1C03B53800D7D009 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +63,11 @@
 		BF4443F91C03B53800D7D009 /* LocationBasedRemindersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocationBasedRemindersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4443FD1C03B53800D7D009 /* LocationBasedRemindersUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationBasedRemindersUITests.m; sourceTree = "<group>"; };
 		BF4443FF1C03B53800D7D009 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF44440B1C03B54A00D7D009 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		BF4444141C03DFEE00D7D009 /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
+		BF4444151C03DFEE00D7D009 /* Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stack.m; sourceTree = "<group>"; };
+		BF4444171C03EBFF00D7D009 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Queue.h; path = CodeChallenge/Queue.h; sourceTree = "<group>"; };
+		BF4444181C03EBFF00D7D009 /* Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Queue.m; path = CodeChallenge/Queue.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF44440C1C03B54A00D7D009 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,9 +96,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF1050AC1C05108600133608 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				BF4443DC1C03B53800D7D009 /* AppDelegate.m */,
+				BF4443DB1C03B53800D7D009 /* AppDelegate.h */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		BF1050AD1C0511ED00133608 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BF4443DE1C03B53800D7D009 /* ViewController.h */,
+				BF4443DF1C03B53800D7D009 /* ViewController.m */,
+				BF1050B31C051FB100133608 /* DetailViewController.h */,
+				BF1050B41C051FB100133608 /* DetailViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		BF1050AE1C0511FE00133608 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BF4443E11C03B53800D7D009 /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		BF1050AF1C05121600133608 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BF1050B01C05125E00133608 /* LocationController.h */,
+				BF1050B11C05125E00133608 /* LocationController.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		BF4443CC1C03B53800D7D009 = {
 			isa = PBXGroup;
 			children = (
+				BF44440F1C03D86700D7D009 /* CodeChallenges */,
+				BF44440B1C03B54A00D7D009 /* MapKit.framework */,
 				BF4443D71C03B53800D7D009 /* LocationBasedReminders */,
 				BF4443F11C03B53800D7D009 /* LocationBasedRemindersTests */,
 				BF4443FC1C03B53800D7D009 /* LocationBasedRemindersUITests */,
@@ -101,11 +158,10 @@
 		BF4443D71C03B53800D7D009 /* LocationBasedReminders */ = {
 			isa = PBXGroup;
 			children = (
-				BF4443DB1C03B53800D7D009 /* AppDelegate.h */,
-				BF4443DC1C03B53800D7D009 /* AppDelegate.m */,
-				BF4443DE1C03B53800D7D009 /* ViewController.h */,
-				BF4443DF1C03B53800D7D009 /* ViewController.m */,
-				BF4443E11C03B53800D7D009 /* Main.storyboard */,
+				BF1050AC1C05108600133608 /* App */,
+				BF1050AF1C05121600133608 /* Model */,
+				BF1050AE1C0511FE00133608 /* View */,
+				BF1050AD1C0511ED00133608 /* Controllers */,
 				BF4443E41C03B53800D7D009 /* Assets.xcassets */,
 				BF4443E61C03B53800D7D009 /* LaunchScreen.storyboard */,
 				BF4443E91C03B53800D7D009 /* Info.plist */,
@@ -138,6 +194,19 @@
 				BF4443FF1C03B53800D7D009 /* Info.plist */,
 			);
 			path = LocationBasedRemindersUITests;
+			sourceTree = "<group>";
+		};
+		BF44440F1C03D86700D7D009 /* CodeChallenges */ = {
+			isa = PBXGroup;
+			children = (
+				BF1050B61C05378900133608 /* Anagram.h */,
+				BF1050B71C05378900133608 /* Anagram.m */,
+				BF4444171C03EBFF00D7D009 /* Queue.h */,
+				BF4444181C03EBFF00D7D009 /* Queue.m */,
+				BF4444141C03DFEE00D7D009 /* Stack.h */,
+				BF4444151C03DFEE00D7D009 /* Stack.m */,
+			);
+			name = CodeChallenges;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +276,11 @@
 				TargetAttributes = {
 					BF4443D41C03B53800D7D009 = {
 						CreatedOnToolsVersion = 7.0;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					BF4443ED1C03B53800D7D009 = {
 						CreatedOnToolsVersion = 7.0;
@@ -270,9 +344,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF4444191C03EBFF00D7D009 /* Queue.m in Sources */,
+				BF4444161C03DFEE00D7D009 /* Stack.m in Sources */,
+				BF1050B21C05125E00133608 /* LocationController.m in Sources */,
+				BF1050B81C05378900133608 /* Anagram.m in Sources */,
 				BF4443E01C03B53800D7D009 /* ViewController.m in Sources */,
 				BF4443DD1C03B53800D7D009 /* AppDelegate.m in Sources */,
 				BF4443DA1C03B53800D7D009 /* main.m in Sources */,
+				BF1050B51C051FB100133608 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +577,7 @@
 				BF4444041C03B53800D7D009 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BF4444051C03B53800D7D009 /* Build configuration list for PBXNativeTarget "LocationBasedRemindersTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +586,7 @@
 				BF4444071C03B53800D7D009 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BF4444081C03B53800D7D009 /* Build configuration list for PBXNativeTarget "LocationBasedRemindersUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +595,7 @@
 				BF44440A1C03B53800D7D009 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
