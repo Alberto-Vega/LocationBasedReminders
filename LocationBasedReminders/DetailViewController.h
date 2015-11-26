@@ -9,8 +9,11 @@
 @import UIKit;
 @import MapKit;
 
+typedef void(^DetailViewControllerCompletion)(MKCircle *circle);
+
 @interface DetailViewController : UIViewController
 
+@property (copy, nonatomic) DetailViewControllerCompletion completion;
 @property (strong, nonatomic) NSString *annotationTitle;
 @property (nonatomic) CLLocationCoordinate2D coordinate;
 

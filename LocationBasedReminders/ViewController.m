@@ -10,9 +10,13 @@
 #import "LocationController.h"
 #import "DetailViewController.h"
 
-@interface ViewController () <LocationControllerDelegate, MKMapViewDelegate>
+@import Parse;
+@import ParseUI;
+
+@interface ViewController () <LocationControllerDelegate, MKMapViewDelegate, PFLogInViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *locationMapView;
+-(IBAction)locationButtonSelected:(UIButton *)sender;
 
 @end
 
@@ -24,6 +28,9 @@
     [self.locationMapView setDelegate:self];
     [self.locationMapView setShowsUserLocation: YES];
     [self.locationMapView.layer setCornerRadius:20.0];
+    
+    // Parse.
+    [self login];
     
 }
 
@@ -46,6 +53,16 @@
             DetailViewController *detailViewController = (DetailViewController *)segue.destinationViewController;
             detailViewController.annotationTitle = annotationView.annotation.title;
             detailViewController.coordinate = annotationView.annotation.coordinate;
+            
+            _weak typeof(self) weakSelf = self;
+            
+            detailViewController.completion = ^(MKCircle *circle) {
+                
+                [weakSelf.mapView removeAnnotation: annotationView.annotation];
+                [weakSelf.mapView addOverlay:circle];
+                
+                NSLog(@"%@", [[LocationController sharedController]locationManager]);
+            };
         }
     }
 }
@@ -126,5 +143,43 @@
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
     [self performSegueWithIdentifier:@"DetailViewController" sender:view];
 }
+
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
+    MKCircleRenderer *circleRenderer = [[MKCircleRenderer alloc] initWithOverlay:overlay];
+    circleRenderer.strokeColor = [UIColor blueColor];
+    circleRenderer.fillColor = [UIColor redColor];
+    circleRenderer.alpha = 0.5;
+    return circleRenderer;
+}
+
+#pragma mark - Parse
+
+-(void)setupAdditionalUI {
+    UIBarButtonItem *signoutButton = [[UIBarButtonItem alloc]initWithTitle:@"Sign Out" style:UIBarButtonItemStylePlain target:self action:@selector(signout)];
+    self.navigationItem.leftBarButtonItem = signoutButton;
+}
+
+- (void)login {
+    if (![PFUser currentUser]) {
+        PFLogInViewController *loginViewController = [[PFLogInViewController alloc]init];
+        loginViewController.delegate = self;
+        
+        [self presentViewController:loginViewController animated:NO completion:nil];
+    } else {
+        [self setupAdditionalUI];
+    }
+}
+
+- (void)signout {
+    [PFUser logOut];
+    [self login];
+}
+    // Delegate
+    
+    - (void)logInViewController: (PFLogInViewController *)logInController didLogInUser: (PFUser *)user {
+        [self dismissViewControllerAnimated: YES completion:nil];
+        [self setupAdditionalUI];
+    }
+       
 
 @end
