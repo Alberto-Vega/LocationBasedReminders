@@ -54,12 +54,12 @@
             detailViewController.annotationTitle = annotationView.annotation.title;
             detailViewController.coordinate = annotationView.annotation.coordinate;
             
-            _weak typeof(self) weakSelf = self;
+            __weak typeof(self) weakSelf = self;
             
             detailViewController.completion = ^(MKCircle *circle) {
                 
-                [weakSelf.mapView removeAnnotation: annotationView.annotation];
-                [weakSelf.mapView addOverlay:circle];
+                [weakSelf.locationMapView removeAnnotation: annotationView.annotation];
+                [weakSelf.locationMapView addOverlay:circle];
                 
                 NSLog(@"%@", [[LocationController sharedController]locationManager]);
             };
