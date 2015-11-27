@@ -36,16 +36,18 @@
     
 //    [query whereKeyExists:@"location"];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-        NSLog(@"%lu", (unsigned long)objects.count);
-    }
+
      if (!error) {
-         NSLog(@"Successfully retrieved %d scores.", @"%lu", (unsigned long)objects.count);
+         NSLog(@"Successfully retrieved %lu reminders.", objects.count);
+//         for( PFObject *object in objects ) {
+//             [[MKCircle circleWithCenterCoordinate:object.location radius:self.radiusTextField.text.floatValue];
+//              }
+     } else {
+         // Print details for the error if there is one.
+         NSLog(@"Error: %@ %@", error, [error userInfo]);
      }
-     
-     for: ( object in object ) {
-     [[MKCircle circleWithCenterCoordinate:self.coordinate radius:self.radiusTextField.text.floatValue];
-      }
-}
+      }];
+     }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
