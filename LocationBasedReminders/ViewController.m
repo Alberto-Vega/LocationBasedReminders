@@ -32,6 +32,19 @@
     // Parse.
     [self login];
     
+    PFQuery *query = [PFQuery queryWithClassName:@"Reminder"];
+    
+//    [query whereKeyExists:@"location"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        NSLog(@"%lu", (unsigned long)objects.count);
+    }
+     if (!error) {
+         NSLog(@"Successfully retrieved %d scores.", @"%lu", (unsigned long)objects.count);
+     }
+     
+     for: ( object in object ) {
+     [[MKCircle circleWithCenterCoordinate:self.coordinate radius:self.radiusTextField.text.floatValue];
+      }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -122,7 +135,7 @@
 
 #pragma mark - MKMapViewDelegate
 
--(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
     if ([annotation isKindOfClass:[MKUserLocation class]]) { return nil; }
     
     // Add view.
@@ -161,6 +174,7 @@
 
 - (void)login {
     if (![PFUser currentUser]) {
+        
         PFLogInViewController *loginViewController = [[PFLogInViewController alloc]init];
         loginViewController.delegate = self;
         

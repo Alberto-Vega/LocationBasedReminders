@@ -68,10 +68,7 @@
             }
         }
     }];
-    
 }
-
-
 
 /*
 #pragma mark - Navigation

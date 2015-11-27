@@ -185,9 +185,9 @@
 			isa = PBXGroup;
 			children = (
 				BF1050B01C05125E00133608 /* LocationController.h */,
+				BF1050B11C05125E00133608 /* LocationController.m */,
 				BFDD50771C067279003ADE4F /* Reminder.h */,
 				BFDD50781C067279003ADE4F /* Reminder.m */,
-				BF1050B11C05125E00133608 /* LocationController.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
