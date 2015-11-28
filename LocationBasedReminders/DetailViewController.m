@@ -16,7 +16,7 @@
 @interface DetailViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *radiusTextField;
+@property (weak, nonatomic) IBOutlet UILabel *radiusValueLabel;
 - (IBAction)createReminderButtonSelected:(UIButton *)sender;
 
 @end
@@ -28,7 +28,8 @@
     // Do any additional setup after loading the view.
     
     NSLog(@"%@", self.annotationTitle);
-    NSLog(@"%f %f", self.coordinate.latitude, self.coordinate.longitude);    
+    NSLog(@"%f %f", self.coordinate.latitude, self.coordinate.longitude);
+    self.radiusValueLabel.text = [NSString stringWithFormat:@"%.f", self.regionRadiusSlider.value];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -45,7 +46,7 @@
     
     Reminder *reminder = [[Reminder alloc]init];
     reminder.name = self.nameTextField.text;
-    reminder.radius = [NSNumber numberWithFloat:self.radiusTextField.text.floatValue];
+    reminder.radius = [NSNumber numberWithFloat:self.regionRadiusSlider.value];
     reminder.location = [PFGeoPoint geoPointWithLatitude:self.coordinate.latitude longitude:self.coordinate.longitude];
     
     [reminder saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
@@ -56,18 +57,24 @@
         if (self.completion) {
             // Check for abilities then...
             if ([CLLocationManager isMonitoringAvailableForClass:[CLCircularRegion class]]) {
+                
                 // Create new region and...
-                CLCircularRegion *region = [[CLCircularRegion alloc]initWithCenter:self.coordinate radius:self.radiusTextField.text.floatValue identifier:self.nameTextField.text];
+                CLCircularRegion *region = [[CLCircularRegion alloc]initWithCenter:self.coordinate radius:self.regionRadiusSlider.value identifier:self.nameTextField.text];
                 [[[LocationController sharedController]locationManager]startMonitoringForRegion:region];
                 
                 // Pass it back to be added to the map.
-                self.completion([MKCircle circleWithCenterCoordinate:self.coordinate radius:self.radiusTextField.text.floatValue]);
+                self.completion([MKCircle circleWithCenterCoordinate:self.coordinate radius:self.regionRadiusSlider.value]);
                 
                 // Dismiss.
                 [self.navigationController popViewControllerAnimated:YES];
             }
         }
     }];
+}
+- (IBAction)regionRadiusSliderValueChanged:(id)sender {
+    
+    self.radiusValueLabel.text = [NSString stringWithFormat:@"%.f", self.regionRadiusSlider.value];
+    NSLog(@"val: %f",_regionRadiusSlider.value);
 }
 
 /*

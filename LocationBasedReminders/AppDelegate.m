@@ -18,6 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self setupParse];
+    [self registerForNotifications];
     // Override point for customization after application launch.
     return YES;
 }

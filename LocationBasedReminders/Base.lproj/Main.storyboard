@@ -99,47 +99,85 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OXY-25-e9t">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Reminder Event Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OXY-25-e9t">
                                 <rect key="frame" x="20" y="72" width="560" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="radius" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zqq-Uh-xhX">
-                                <rect key="frame" x="20" y="110" width="560" height="30"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="5" maxValue="100" minimumValueImage="Marker-25" maximumValueImage="Geo-fence-25" translatesAutoresizingMaskIntoConstraints="NO" id="h0l-DC-G4m">
+                                <rect key="frame" x="18" y="157" width="564" height="31"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <connections>
+                                    <action selector="regionRadiusSliderValueChanged:" destination="gs9-1w-5gN" eventType="valueChanged" id="9LM-aZ-4e4"/>
+                                </connections>
+                            </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g75-nL-AF9">
-                                <rect key="frame" x="243" y="158" width="115" height="30"/>
+                                <rect key="frame" x="243" y="195" width="115" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Create Reminder"/>
                                 <connections>
                                     <action selector="createReminderButtonSelected:" destination="gs9-1w-5gN" eventType="touchUpInside" id="OJD-KV-1Zd"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="h0l-DC-G4m">
-                                <rect key="frame" x="242" y="205" width="118" height="31"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RI8-D2-eym">
+                                <rect key="frame" x="20" y="110" width="560" height="39"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set the location radius in meters :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P7a-pv-sa1">
+                                        <rect key="frame" x="0.0" y="13" width="177" height="14"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxX-od-4im">
+                                        <rect key="frame" x="185" y="13" width="38" height="14"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <animations/>
-                            </slider>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="P7a-pv-sa1" firstAttribute="leading" secondItem="RI8-D2-eym" secondAttribute="leading" id="0yg-BP-0CX"/>
+                                    <constraint firstItem="gxX-od-4im" firstAttribute="centerY" secondItem="P7a-pv-sa1" secondAttribute="centerY" id="fKu-Pl-zUe"/>
+                                    <constraint firstAttribute="height" constant="39" id="oCC-AT-l01"/>
+                                    <constraint firstItem="P7a-pv-sa1" firstAttribute="centerY" secondItem="RI8-D2-eym" secondAttribute="centerY" id="p9E-r2-EwP"/>
+                                    <constraint firstItem="gxX-od-4im" firstAttribute="leading" secondItem="P7a-pv-sa1" secondAttribute="trailing" constant="8" symbolic="YES" id="zA7-Br-cMa"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="g75-nL-AF9" firstAttribute="centerX" secondItem="WZc-bo-H51" secondAttribute="centerX" id="005-EV-DuV"/>
                             <constraint firstItem="OXY-25-e9t" firstAttribute="leading" secondItem="WZc-bo-H51" secondAttribute="leading" constant="20" id="ALJ-aT-nNi"/>
+                            <constraint firstAttribute="trailing" secondItem="RI8-D2-eym" secondAttribute="trailing" constant="20" id="IvV-pf-x8C"/>
                             <constraint firstAttribute="trailing" secondItem="OXY-25-e9t" secondAttribute="trailing" constant="20" id="JLe-so-qnP"/>
-                            <constraint firstAttribute="trailing" secondItem="zqq-Uh-xhX" secondAttribute="trailing" constant="20" id="OJP-p3-MXf"/>
-                            <constraint firstItem="zqq-Uh-xhX" firstAttribute="top" secondItem="OXY-25-e9t" secondAttribute="bottom" constant="8" symbolic="YES" id="VzN-aO-gMg"/>
-                            <constraint firstItem="g75-nL-AF9" firstAttribute="top" secondItem="zqq-Uh-xhX" secondAttribute="bottom" constant="18" id="esE-Fv-ZBJ"/>
-                            <constraint firstItem="zqq-Uh-xhX" firstAttribute="leading" secondItem="WZc-bo-H51" secondAttribute="leading" constant="20" id="wek-b5-n06"/>
+                            <constraint firstItem="h0l-DC-G4m" firstAttribute="top" secondItem="RI8-D2-eym" secondAttribute="bottom" constant="8" symbolic="YES" id="V9w-Br-7UE"/>
+                            <constraint firstItem="h0l-DC-G4m" firstAttribute="top" secondItem="g75-nL-AF9" secondAttribute="bottom" constant="8" symbolic="YES" id="VJP-yj-XYr"/>
+                            <constraint firstAttribute="trailing" secondItem="h0l-DC-G4m" secondAttribute="trailing" constant="20" id="XiD-jB-186"/>
+                            <constraint firstItem="g75-nL-AF9" firstAttribute="top" secondItem="h0l-DC-G4m" secondAttribute="bottom" constant="8" symbolic="YES" id="fSS-SN-SHo"/>
+                            <constraint firstItem="h0l-DC-G4m" firstAttribute="centerX" secondItem="WZc-bo-H51" secondAttribute="centerX" id="nKg-iL-UOP"/>
+                            <constraint firstItem="RI8-D2-eym" firstAttribute="centerX" secondItem="WZc-bo-H51" secondAttribute="centerX" id="nw9-MJ-DQd"/>
+                            <constraint firstItem="RI8-D2-eym" firstAttribute="leading" secondItem="WZc-bo-H51" secondAttribute="leading" constant="20" id="qKY-wB-rFB"/>
+                            <constraint firstItem="h0l-DC-G4m" firstAttribute="leading" secondItem="WZc-bo-H51" secondAttribute="leading" constant="20" id="r2F-BG-K7F"/>
+                            <constraint firstItem="RI8-D2-eym" firstAttribute="top" secondItem="OXY-25-e9t" secondAttribute="bottom" constant="8" symbolic="YES" id="vOY-Pb-T9n"/>
                             <constraint firstItem="OXY-25-e9t" firstAttribute="top" secondItem="ckc-DR-FwH" secondAttribute="bottom" constant="8" symbolic="YES" id="yZk-8m-Lv6"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="VJP-yj-XYr"/>
+                                <exclude reference="nKg-iL-UOP"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="nameTextField" destination="OXY-25-e9t" id="gQ0-7S-FUm"/>
-                        <outlet property="radiusTextField" destination="zqq-Uh-xhX" id="BBD-xL-rJH"/>
+                        <outlet property="radiusValueLabel" destination="gxX-od-4im" id="097-MT-BdO"/>
+                        <outlet property="regionRadiusSlider" destination="h0l-DC-G4m" id="qhd-4A-3sU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mEE-ey-RpI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -166,4 +204,8 @@
             <point key="canvasLocation" x="305" y="341"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Geo-fence-25" width="25" height="25"/>
+        <image name="Marker-25" width="25" height="25"/>
+    </resources>
 </document>

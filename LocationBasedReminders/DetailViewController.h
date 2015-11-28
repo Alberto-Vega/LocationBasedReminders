@@ -12,6 +12,7 @@
 typedef void(^DetailViewControllerCompletion)(MKCircle *circle);
 
 @interface DetailViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UISlider *regionRadiusSlider;
 
 @property (copy, nonatomic) DetailViewControllerCompletion completion;
 @property (strong, nonatomic) NSString *annotationTitle;
