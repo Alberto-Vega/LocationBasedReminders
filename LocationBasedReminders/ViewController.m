@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "LocationController.h"
 #import "DetailViewController.h"
+#import "Reminder.h"
 
 @import Parse;
 @import ParseUI;
@@ -17,6 +18,8 @@
 
 @property (weak, nonatomic) IBOutlet MKMapView *locationMapView;
 -(IBAction)locationButtonSelected:(UIButton *)sender;
+
+@property (strong, nonatomic) NSArray *remindersFromParse;
 
 @end
 
@@ -34,14 +37,34 @@
     
     PFQuery *query = [PFQuery queryWithClassName:@"Reminder"];
     
-//    [query whereKeyExists:@"location"];
+//    [query whereKeyExists:[[PFUser currentUser] objectId]];
+//  [query whereKey:@"location" nearGeoPoint: self.locationMapView];
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
 
      if (!error) {
          NSLog(@"Successfully retrieved %lu reminders.", objects.count);
-//         for( PFObject *object in objects ) {
-//             [[MKCircle circleWithCenterCoordinate:object.location radius:self.radiusTextField.text.floatValue];
-//              }
+         self.remindersFromParse = [[NSArray alloc] initWithArray:objects];
+         for( Reminder *reminder in self.remindersFromParse) {
+             CLLocationCoordinate2D location = CLLocationCoordinate2DMake(reminder.location.latitude, reminder.location.longitude);
+             if ([CLLocationManager isMonitoringAvailableForClass:[CLCircularRegion class]]) {
+                 // Create new region and start monitoring it.
+                 
+                 double dRadius = [reminder.radius doubleValue];
+
+                 CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:location radius:dRadius identifier:reminder.name];
+//                 self.monitoredRegions = [self.monitoredRegions arrayByAddingObject: region];
+                 
+                 [[[LocationController sharedController]locationManager] startMonitoringForRegion: region];
+                 
+                 __weak typeof(self) weakSelf = self;
+
+                     [weakSelf.locationMapView addOverlay:[MKCircle circleWithCenterCoordinate: location radius: region.radius]];
+                     
+                     NSLog(@"%@", [[LocationController sharedController]locationManager]);
+             }
+         }
+         
      } else {
          // Print details for the error if there is one.
          NSLog(@"Error: %@ %@", error, [error userInfo]);

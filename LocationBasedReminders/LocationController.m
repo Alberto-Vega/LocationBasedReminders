@@ -51,7 +51,7 @@
     
     UILocalNotification *notification = [[UILocalNotification alloc]init];
     notification.alertTitle = @"Reminder:";
-    notification.alertBody = @"Buy Eggs.";
+    notification.alertBody = region.identifier;
     
     [[UIApplication sharedApplication]presentLocalNotificationNow:notification];
 }
