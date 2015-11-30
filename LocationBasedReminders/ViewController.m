@@ -53,8 +53,6 @@
                  double dRadius = [reminder.radius doubleValue];
 
                  CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:location radius:dRadius identifier:reminder.name];
-//                 self.monitoredRegions = [self.monitoredRegions arrayByAddingObject: region];
-                 
                  [[[LocationController sharedController]locationManager] startMonitoringForRegion: region];
                  
                  __weak typeof(self) weakSelf = self;
