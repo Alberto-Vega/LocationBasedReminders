@@ -170,8 +170,8 @@
     }
     
     annotationView.canShowCallout = true;
-    UIButton *rightCallout = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    annotationView.rightCalloutAccessoryView = rightCallout;
+    UIButton *rightCalloutButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    annotationView.rightCalloutAccessoryView = rightCalloutButton;
 
     return annotationView;
 }
